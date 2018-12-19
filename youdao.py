@@ -80,8 +80,8 @@ class Main(Wox):
                 'SubTitle': '有道翻译',
                 'IcoPath': 'Img\\youdao.ico',
                 'JsonRPCAction': {
-                    'method': 'open_url',
-                    'parameters': [q, QUERY_URL]
+                    'method': 'copy_text',
+                    'parameters': [translation[0]]
                 }
             })
 
@@ -102,8 +102,8 @@ class Main(Wox):
                     'SubTitle': '{} - 基本词典'.format(response.get('query', '')),
                     'IcoPath': 'Img\\youdao.ico',
                     'JsonRPCAction': {
-                        'method': 'open_url',
-                        'parameters': [q, QUERY_URL]
+                        'method': 'copy_text',
+                        'parameters': [i]
                     }
                 })
         if web:
@@ -113,8 +113,8 @@ class Main(Wox):
                     'SubTitle': '{} - 网络释义'.format(i['key']),
                     'IcoPath': 'Img\\youdao.ico',
                     'JsonRPCAction': {
-                        'method': 'open_url',
-                        'parameters': [q, QUERY_URL]
+                        'method': 'copy_text',
+                        'parameters': [i['value']]
                     }
                 })
         return result
@@ -124,7 +124,10 @@ class Main(Wox):
             webbrowser.open(url + query)
         else:
             webbrowser.open(query)
-
+    
+    def copy_text(self, value):
+        clipboard.copy(value)
+        
     @staticmethod
     def yd_api(q):
         payload = "q={}&from=Auto&to=Auto".format(urllib.parse.quote(q))
