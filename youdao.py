@@ -2,6 +2,7 @@ import http.client
 import json
 import urllib
 import webbrowser
+import clipboard
 
 from wox import Wox
 

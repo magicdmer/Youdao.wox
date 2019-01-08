@@ -4,7 +4,7 @@
   "Name":"有道智云翻译",
   "Description":"有道智云翻译，自动检测语言",
   "Author":"qianlifeng, foolment, ferstar",
-  "Version":"0.0.2",
+  "Version":"0.0.3",
   "Language":"python",
   "Website":"https://github.com/ferstar/Youdao.wox",
   "IcoPath": "img\\youdao.ico",
